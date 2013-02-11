@@ -77,7 +77,7 @@ class Page(object):
     Page class to render html. Can be used as is but should be subclassed to create a specific 'main template'
     and then subclass Template to add content to it.
     
-    To render the page through the Django templating engine snd the request with the 
+    To render the page through the Django templating engine send the request with the 
     """
     request = None
     render_as_template = True
@@ -107,7 +107,7 @@ class Page(object):
         self.inlineCSS = ""
         self.content = ""
         self.googleAnalytics = ""
-        self.doctype='<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">'
+        self.doctype='<!DOCTYPE html>'
         
        
     @property
