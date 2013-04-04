@@ -27,14 +27,13 @@ each specific page.
 Installation
 ============
 
-1. Clone this repository into your Django project with the name widgetry (not django-widgetry):
-
+1 - Clone this repository into your Django project with the name widgetry (not django-widgetry):
 ```
 cd [my_django_project_path]
 git clone [this_rep] widgetry
 ```
 
-2. Add 'widgetry' to your settings.py under INSTALLED_APPS 
+2 - Add 'widgetry' to your settings.py under INSTALLED_APPS 
 
 Resource dependency
 ===================
