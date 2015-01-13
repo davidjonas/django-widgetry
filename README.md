@@ -106,7 +106,7 @@ templates.py
 ------------
 ```python
 
-from my_django.django-widgetry.html_generator import Page, Template
+from my_django.widgetry.html_generator import Page, Template
 
 class MainPage(Page):
     def __init__(self, request, title):
@@ -140,7 +140,7 @@ widgets.py
 ----------
 ```python
 
-from my_django.django-widgetry.html_generator import Widget
+from my_django.widgetry.html_generator import Widget
 
 class Menu(Widget):
     """
