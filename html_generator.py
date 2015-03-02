@@ -103,6 +103,7 @@ class Page(object):
         self.JS = []
         self.CSS = []
         self.resources = []
+        self.HTMLClass = ""
         self.inlineJS = ""
         self.inlineCSS = ""
         self.content = ""
@@ -251,17 +252,23 @@ class Page(object):
         """
         self.headDirectives.append(headDir)
 
+    def addHTMLClass(self, className):
+        """
+        Adds a class to the html element. To be able to recognize in js which page this is normally.
+        """
+        self.HTMLClass = className
+
     def render(self):
         """
         Render full HTML of the page. Use this to send as response to the client.
         """
         HTML = """%(doctype)s
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html class="%(HTMLClass)s" xmlns="http://www.w3.org/1999/xhtml">
     %(Head)s
     %(Body)s
     %(googleAnalytics)s
 </html>
-        """%{"Head":self.Head, "Body":self.Body, "googleAnalytics": self.googleAnalytics, "doctype":self.doctype}
+        """%{"Head":self.Head, "Body":self.Body, "googleAnalytics": self.googleAnalytics, "doctype":self.doctype, "HTMLClass":self.HTMLClass}
 
         HTMLRender = ""
 
@@ -333,7 +340,7 @@ class Template(object):
 
     def addInlineJS(self,js):
         """
-        Includes inline JS into the parnet page's head js is a string with javascript code to be included on the page.
+        Includes inline JS into the parent page's head js is a string with javascript code to be included on the page.
         """
         self.parent.addInlineJS(js)
 
@@ -342,6 +349,12 @@ class Template(object):
         Includes inline CSS into the parent page's head js is a string with javascript code to be included on the page.
         """
         self.parent.addInlineCSS(css)
+
+    def addHTMLClass(self, className):
+        """
+        Adds a class to the html element. To be able to recognize in js which page this is normally.
+        """
+        self.parent.addHTMLClass(className)
 
     def render(self):
         self.parent.add(self.content)
