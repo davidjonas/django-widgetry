@@ -24,6 +24,17 @@ without special syntaxes.
 The architecture is focused on creating really dynamic and modular pages and deal with management of resources needed to render
 each specific page.
 
+Installation
+============
+
+1 - Clone this repository into your Django project with the name widgetry (not django-widgetry):
+```
+cd [my_django_project_path]
+git clone [this_rep] widgetry
+```
+
+2 - Add 'widgetry' to your settings.py under INSTALLED_APPS 
+
 Resource dependency
 ===================
 Widgetry introduces also the neat concept of CSS, javascript and head directive and resource dependencies. That means that
